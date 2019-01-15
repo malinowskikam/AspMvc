@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Silnia";
+}
+
+<h3>Silnia</h3>
+
+<h2>Ta podstrona oblicza silnie za pomocą razora</h2>
+<p>
+    @Html.Partial("_SilniaResult", new ViewDataDictionary { { "Arg", ViewBag.Argument } })
+</p>

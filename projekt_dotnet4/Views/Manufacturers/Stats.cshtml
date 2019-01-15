@@ -1,0 +1,35 @@
+﻿@model IEnumerable<projekt_dotnet.Models.ManufacturerVM>
+
+@{
+    ViewBag.Title = "Producenci";
+}
+
+<h2>Statystyki</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Producent
+        </th>
+        <th>
+            Ocena producenta
+        </th>
+        <th>
+            Ilość narzędzi
+        </th>
+        <th>
+            Średnia ocen narzędzi
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Man)</td>
+        <td>@Html.DisplayFor(modelItem => item.Rat)</td>
+        <td>@Html.DisplayFor(modelItem => item.TCount)</td>
+        <td>@Html.DisplayFor(modelItem => item.TRating)</td>
+    </tr>
+}
+
+</table>

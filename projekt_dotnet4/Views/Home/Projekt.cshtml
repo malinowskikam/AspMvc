@@ -1,0 +1,60 @@
+﻿<h4><b>ASP MVC wymagania</b></h4>
+
+<p><b>Aplikacja realizująca CRUD</b></p>
+
+<p></p>
+
+<p><b>Modele: 35%</b></p>
+<ul>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">atrybuty dotyczące ograniczeń danych (własne walidatory): 15%</span><br></li>
+    <li><span style="font-size: 14.04px; line-height: 21.84px;">atrybuty&nbsp;</span><span style="font-size: 14.04px; line-height: 1.4;">dotyczące widoków: 10%</span><br></li>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">minimum 2 tabele z relacją jeden-do-wiele: 10%</span></li>
+</ul>
+<p>
+    Atrybuty dotyczące widoków: DisplayName, DisplayFormat w modelach<br />
+    Walidatory: folder Validators + walidator w ToolsController<br />
+    2 tabele z relacją 1-M: ManufacturerId w modelu Tool<br />
+</p>
+<p></p>
+
+<p><b>Kontrolery: 30%</b></p>
+<ul>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">powiązanie uprawnień zalogowanych userów z kontrolerami (atrybuty wykorzystujące role): 10%</span><br></li>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">logowanie i przynależność do ról: 10%</span></li>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">LINQ: 10%</span></li>
+</ul>
+<p>
+    funkcjonalność roli: jeszcze nie ma
+    logowanie i role: jest
+    linq: Manufacturer.Stats, Manufacturer.Details
+</p>
+<p></p>
+
+<p><b>Widoki: 35%</b></p>
+<ul>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">widoki pisane w Razor + przekazywanie danych do widoku: 7%</span></li>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">umiejętność + przykład ręcznego rozszerzenia widoku: 7%</span></li>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">widoki częściowe + komunikacja z widokiem podstawowym: 7%</span></li>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">zastosowanie podstawowych helperów + definicja własnych: 7%</span></li>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">zastosowanie layoutów: 7%</span></li>
+</ul>
+<p>
+    przekazywanie danych do widoku: ManufacturersController.Details(int) + HomeController.Silnia<br />
+    rozszerzanie widoku: Manufacturers/Details + Home/_SilniaResult<br />
+    widoki częściowe + przekazywanie danych do widoku częściowego: Home/Silnia + Home/_SilniaResult<br />
+    Helpery: Html.ActionLink + Html.Partial<br />
+    Własne Helpery: folder Helpers<br />
+    Layout: Dodatkowe linki w layoucie<br />
+</p>
+<p></p>
+
+<p><b>Extra: 15%</b></p>
+<ul>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">modyfikacja routingu RESTowego: 5%</span><br></li>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">zarządzanie stanem aplikacji: 5%</span><br></li>
+    <li><span style="font-size: 14.04px; line-height: 1.4;">umieszczenie strony na Azure: 5%</span><br></li>
+</ul>
+<p>
+    modyfikacja routingu: odblokowanie w RouteConfig.cs, HomeController.Silnia<br />
+    azure: jest<br />
+</p>

@@ -21,7 +21,7 @@ namespace projekt_dotnet4.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("AzureDB", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +29,9 @@ namespace projekt_dotnet4.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<projekt_dotnet.Models.Tool> Tools { get; set; }
+
+        public System.Data.Entity.DbSet<projekt_dotnet.Models.Manufacturer> Manufacturers { get; set; }
     }
 }

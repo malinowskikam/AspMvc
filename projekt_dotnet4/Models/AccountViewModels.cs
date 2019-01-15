@@ -49,9 +49,8 @@ namespace projekt_dotnet4.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Adres e-mail")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Nazwa użytkownika")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -64,6 +63,10 @@ namespace projekt_dotnet4.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Nazwa użytkownika")]
+        public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Adres e-mail")]
@@ -79,6 +82,10 @@ namespace projekt_dotnet4.Models
         [Display(Name = "Potwierdź hasło")]
         [Compare("Password", ErrorMessage = "Hasło i jego potwierdzenie są niezgodne.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Rola")]
+        public string UserRole { get; set; }
     }
 
     public class ResetPasswordViewModel

@@ -1,0 +1,27 @@
+﻿@{ int arg = ViewBag.Arg; }
+@{ long result = 1;}
+@if (arg<0) {
+    <text>Brak silni dla ujemnego argumentu</text>
+} else if (arg==0)
+{
+    <text>0! = 1</text>
+} else
+{
+    bool overflow = false;
+    for(int i=arg;i>1;i--)
+    {
+        result *= i;
+        if(result<0)
+        {
+            overflow = true;
+        }
+    }
+    if (overflow)
+    {
+        <text>Wynik przekroczył maksymalną wartość typu long</text>
+    }
+    else
+    {
+        <text>@(arg)! = @(result)</text>
+    }
+}

@@ -26,5 +26,18 @@ namespace projekt_dotnet4.Controllers
 
             return View();
         }
+
+        public ActionResult Projekt()
+        {
+            return View();
+        }
+        
+        [Route("~/Silnia/{arg=0}")]
+        public ActionResult Silnia(int arg)
+        {
+            ViewData["Argument"] = arg;
+
+            return View();
+        }
     }
 }
