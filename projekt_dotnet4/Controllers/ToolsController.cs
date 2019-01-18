@@ -21,6 +21,7 @@ namespace projekt_dotnet4.Controllers
         private string[] CanDelete = { "Admin" };
 
         // GET: Tools
+        [Authorize(Roles = "Admin, Moderator, User")]
         public ActionResult Index()
         {
             var tools = db.Tools.Include(t => t.Manufacturer);
@@ -28,6 +29,7 @@ namespace projekt_dotnet4.Controllers
         }
 
         // GET: Tools/Details/5
+        [Authorize(Roles = "Admin, Moderator, User")]
         public ActionResult Details(long? id)
         {
             if (id == null)
@@ -43,6 +45,7 @@ namespace projekt_dotnet4.Controllers
         }
 
         // GET: Tools/Create
+        [Authorize(Roles = "Admin, Moderator")]
         public ActionResult Create()
         {
             ViewBag.ManufacturerId = new SelectList(db.Manufacturers, "Id", "Name");
@@ -54,6 +57,7 @@ namespace projekt_dotnet4.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Moderator")]
         public ActionResult Create([Bind(Include = "Id,Name,ProductionDate,Price,Rating,ManufacturerId")] Tool tool)
         {
             if (ModelState.IsValid)
@@ -68,6 +72,7 @@ namespace projekt_dotnet4.Controllers
         }
 
         // GET: Tools/Edit/5
+        [Authorize(Roles = "Admin, Moderator")]
         public ActionResult Edit(long? id)
         {
             if (id == null)
@@ -88,6 +93,7 @@ namespace projekt_dotnet4.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Moderator")]
         public ActionResult Edit([Bind(Include = "Id,Name,ProductionDate,Price,Rating,ManufacturerId")] Tool tool)
         {
             if (ModelState.IsValid)
@@ -101,6 +107,7 @@ namespace projekt_dotnet4.Controllers
         }
 
         // GET: Tools/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(long? id)
         {
             if (id == null)
@@ -118,6 +125,7 @@ namespace projekt_dotnet4.Controllers
         // POST: Tools/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(long id)
         {
             Tool tool = db.Tools.Find(id);

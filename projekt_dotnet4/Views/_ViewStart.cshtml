@@ -1,3 +1,10 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (ViewContext.ViewData["Layout"] != null)
+    {
+        Layout = "~/Views/Shared/" + ViewContext.ViewData["Layout"] + ".cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }

@@ -29,6 +29,7 @@ namespace projekt_dotnet4.Controllers
 
         public ActionResult Projekt()
         {
+            ViewData["Layout"] = "_Layout2";
             return View();
         }
         
@@ -37,6 +38,13 @@ namespace projekt_dotnet4.Controllers
         {
             ViewData["Argument"] = arg;
 
+            return View();
+        }
+
+        public ActionResult AccessDenied(string c,string a)
+        {
+            ViewData["Title"] = "Brak dostępu";
+            ViewData["Message"] = $"Nie masz dostępu do {c}/{a}";
             return View();
         }
     }

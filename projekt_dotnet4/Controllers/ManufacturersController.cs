@@ -15,17 +15,14 @@ namespace projekt_dotnet4.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        private string[] CanRead = { "User", "Moderator", "Admin" };
-        private string[] CanCreate = { "Moderator", "Admin" };
-        private string[] CanUpdate = { "Moderator", "Admin" };
-        private string[] CanDelete = { "Admin" };
-
         // GET: Manufacturers
+        [Authorize(Roles = "Admin, Moderator, User")]
         public ActionResult Index()
         {
-            return View(db.Manufacturers.ToList());
+            return View(db.Manufacturers.ToList());  
         }
 
+        [Authorize(Roles = "Admin, Moderator, User")]
         public ActionResult Stats()
         {
             var query = (from m in db.Manufacturers
@@ -41,6 +38,7 @@ namespace projekt_dotnet4.Controllers
         }
 
         // GET: Manufacturers/Details/5
+        [Authorize(Roles = "Admin, Moderator, User")]
         public ActionResult Details(long? id)
         {
             if (id == null)
@@ -62,6 +60,7 @@ namespace projekt_dotnet4.Controllers
         }
 
         // GET: Manufacturers/Create
+        [Authorize(Roles = "Admin, Moderator")]
         public ActionResult Create()
         {
             return View();
@@ -72,6 +71,7 @@ namespace projekt_dotnet4.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Moderator")]
         public ActionResult Create([Bind(Include = "Id,Name,CreationDate,Rating")] Manufacturer manufacturer)
         {
             if (ModelState.IsValid)
@@ -85,6 +85,7 @@ namespace projekt_dotnet4.Controllers
         }
 
         // GET: Manufacturers/Edit/5
+        [Authorize(Roles = "Admin, Moderator")]
         public ActionResult Edit(long? id)
         {
             if (id == null)
@@ -104,6 +105,7 @@ namespace projekt_dotnet4.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Moderator")]
         public ActionResult Edit([Bind(Include = "Id,Name,CreationDate,Rating")] Manufacturer manufacturer)
         {
             if (ModelState.IsValid)
@@ -116,6 +118,7 @@ namespace projekt_dotnet4.Controllers
         }
 
         // GET: Manufacturers/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(long? id)
         {
             if (id == null)
@@ -131,6 +134,7 @@ namespace projekt_dotnet4.Controllers
         }
 
         // POST: Manufacturers/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)

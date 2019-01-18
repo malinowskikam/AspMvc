@@ -263,6 +263,8 @@
     <Content Include="Views\Home\Silnia.cshtml" />
     <Content Include="Views\Home\_SilniaResult.cshtml" />
     <Content Include="Views\Manufacturers\Stats.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Home\AccessDenied.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
